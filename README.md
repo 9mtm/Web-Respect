@@ -19,7 +19,7 @@ Source: https://github.com/9mtm/Web-Respect
 
 Tested frontend integrations and optional backend runtimes; exact versions are listed in [verification](docs/verification.md).
 
-Version: 0.1.0 (initial release candidate). Install from [npm](https://www.npmjs.com/package/web-respect-dpro) with `npm install web-respect-dpro@0.1.0`. Tested versions and limits: [verification](docs/verification.md). The GitHub release tarball can also be installed with `npm install ./web-respect-dpro-0.1.0.tgz`, or build from this repository:
+Version: 0.1.2 (documentation and branding patch; runtime unchanged from 0.1.0). Install from [npm](https://www.npmjs.com/package/web-respect-dpro) with `npm install web-respect-dpro@0.1.2`. Tested versions and limits: [verification](docs/verification.md). The GitHub release tarball can also be installed with `npm install ./web-respect-dpro-0.1.2.tgz`, or build from this repository:
 
 ```sh
 npm ci
