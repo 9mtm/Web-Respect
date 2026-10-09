@@ -4,7 +4,7 @@ Verified on 9 October 2026. This initial release is not a WCAG or legal complian
 
 ## Distribution
 
-Source/releases: https://github.com/9mtm/Web-Respect. The kit includes `web-respect-dpro-0.1.0.tgz` and a WordPress plugin ZIP. npm registry publication is blocked by absent authenticated publishing credentials; Composer/PyPI distributions are unavailable. The bundled skill is `skill/web-respect/SKILL.md` in both repository and installed package.
+Source/releases: https://github.com/9mtm/Web-Respect. The kit includes `web-respect-dpro-0.1.0.tgz` and a WordPress plugin ZIP. The owner completed npm publication after the initial kit verification: [web-respect-dpro 0.1.0](https://www.npmjs.com/package/web-respect-dpro). Install with `npm install web-respect-dpro@0.1.0`. Composer/PyPI distributions are unavailable. The original GitHub tarball retains the initial pre-publication status report; this document records the later registry verification. The bundled skill is `skill/web-respect/SKILL.md` in both repository and installed package.
 
 | Integration | Tested version | Result |
 | --- | --- | --- |

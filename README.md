@@ -4,7 +4,7 @@ Accessibility preferences and consent controls extracted from the owner-authoriz
 
 Source: https://github.com/9mtm/Web-Respect
 
-Version: 0.1.0 (initial release candidate). Distribution status and tested versions: [verification](docs/verification.md). Do not assume a registry package exists until the release report confirms it. Install the release tarball with `npm install ./web-respect-dpro-0.1.0.tgz`, or build from this repository:
+Version: 0.1.0 (initial release candidate). Install from [npm](https://www.npmjs.com/package/web-respect-dpro) with `npm install web-respect-dpro@0.1.0`. Tested versions and limits: [verification](docs/verification.md). The GitHub release tarball can also be installed with `npm install ./web-respect-dpro-0.1.0.tgz`, or build from this repository:
 
 ```sh
 npm ci
