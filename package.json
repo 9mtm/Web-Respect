@@ -1,6 +1,6 @@
 {
   "name": "web-respect-dpro",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Configurable accessibility and consent controls with optional backend adapters",
   "type": "module",
   "license": "MIT",

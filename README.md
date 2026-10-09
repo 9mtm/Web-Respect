@@ -1,5 +1,16 @@
 # Web Respect
 
+<p>
+  <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/gdpr-dsgvo.png" alt="Owner-declared DSGVO and GDPR compliance" height="34">
+  <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/eu-ai-act.png" alt="Owner-declared EU AI Act compliance" height="34">
+</p>
+
+Owner-declared compliance statements; not independently certified. Applicability and compliance depend on the host deployment. See [regional guidance](docs/regions.md).
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Status: initial release](https://img.shields.io/badge/status-initial_release-blue.svg)](docs/verification.md)
+[![npm](https://img.shields.io/npm/v/web-respect-dpro?label=npm)](https://www.npmjs.com/package/web-respect-dpro)
+
 Accessibility preferences and consent controls extracted from the owner-authorized Flowxtra drawer/banner design. A framework-neutral TypeScript core, isolated browser UI, optional React wrapper, bundled agent skill and optional Node/PHP/Python consent adapters. No tracker, external endpoint, Flowxtra service inventory or host theme mutation is enabled by default.
 
 Source: https://github.com/9mtm/Web-Respect

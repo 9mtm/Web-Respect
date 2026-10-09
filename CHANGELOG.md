@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — documentation and branding
+
+- Add owner-provided compliance badges with explicit attribution and deployment limits.
+- Add license, release status and npm badges to the main README.
+- No browser or backend behavior changes.
+
+
 ## 0.1.0 — initial release candidate
 
 - Framework-neutral validated accessibility/consent controllers with versioned storage and lifecycle events.
