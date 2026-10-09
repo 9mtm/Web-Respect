@@ -1,0 +1,18 @@
+node_modules/
+work/
+dist/
+*.tgz
+.env
+__pycache__/
+.venv/
+*.sqlite*
+TASK.md
+HANDOFF.md
+docs/source-inventory.json
+examples/*/bundle.js
+examples/next/.next/
+examples/next/out/
+examples/astro/dist/
+examples/astro/.astro/
+examples/wordpress/web-respect/web-respect.js
+/Web Respect/

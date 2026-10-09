@@ -1,0 +1,14 @@
+**/node_modules/**
+**/__pycache__/**
+**/*.pyc
+**/.next/**
+**/.astro/**
+examples/next/out/**
+examples/astro/dist/**
+examples/*/bundle.js
+docs/source-inventory.json
+TASK.md
+HANDOFF.md
+work/**
+**/.env*
+**/*.sqlite*

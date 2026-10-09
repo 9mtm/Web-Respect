@@ -1,0 +1,9 @@
+---
+---
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Astro integration</title></head><body><h1>Astro integration</h1><button id="accessibility">Accessibility</button><button id="consent">Consent preferences</button><div id="widget"></div><script>
+import {mount} from '../../../../dist/browser.js';
+const toolkit=mount(document.querySelector<HTMLElement>('#widget')!,{namespace:'wr-astro',showLauncher:'always',consent:{policyVersion:'1'}});
+document.querySelector('#accessibility')!.addEventListener('click',()=>toolkit.open('accessibility'));
+document.querySelector('#consent')!.addEventListener('click',()=>toolkit.open('consent'));
+document.addEventListener('astro:before-swap',()=>void toolkit.dispose(),{once:true});
+</script></body></html>

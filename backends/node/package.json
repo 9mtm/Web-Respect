@@ -1,0 +1,1 @@
+{"name":"web-respect-node-example","private":true,"type":"module","scripts":{"start":"node --experimental-strip-types server.ts"},"dependencies":{"express":"5.1.0"}}

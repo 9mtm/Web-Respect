@@ -1,0 +1,6 @@
+**/node_modules/**
+**/.next/**
+**/.astro/**
+next/out/**
+astro/dist/**
+*/bundle.js

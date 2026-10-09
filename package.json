@@ -1,0 +1,83 @@
+{
+  "name": "web-respect-dpro",
+  "version": "0.1.0",
+  "description": "Configurable accessibility and consent controls with optional backend adapters",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "skill",
+    "docs",
+    "backends",
+    "contract",
+    "examples",
+    "scripts/backend-conformance.mjs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./accessibility": {
+      "types": "./dist/accessibility.d.ts",
+      "import": "./dist/accessibility.js"
+    },
+    "./consent": {
+      "types": "./dist/consent.d.ts",
+      "import": "./dist/consent.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "import": "./dist/browser.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "tsc --noEmit",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@angular/common": "20.3.33",
+    "@angular/compiler": "20.3.33",
+    "@angular/core": "20.3.33",
+    "@angular/platform-browser": "20.3.33",
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.2",
+    "astro": "^7.3.4",
+    "esbuild": "0.25.12",
+    "next": "16.4.0",
+    "react": "19.2.0",
+    "react-dom": "^19.2.0",
+    "rxjs": "^7.8.2",
+    "svelte": "5.57.2",
+    "typescript": "5.9.3",
+    "vue": "3.5.43",
+    "zone.js": "^0.15.1"
+  },
+  "peerDependencies": {
+    "react": ">=19 <20"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://dpro.at/en/web-respect/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/9mtm/Web-Respect.git"
+  }
+}

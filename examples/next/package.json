@@ -1,0 +1,1 @@
+{"name":"web-respect-next-example","private":true,"type":"module","scripts":{"build":"next build --webpack","start":"next start -p 4333"}}
