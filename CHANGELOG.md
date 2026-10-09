@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — integration marks
+
+- Include tested frontend/backend integration logos and their CC0 licence.
+- Browser/backend behavior remains unchanged.
+
+
 ## 0.1.1 — documentation and branding
 
 - Add owner-provided compliance badges with explicit attribution and deployment limits.

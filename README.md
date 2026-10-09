@@ -15,6 +15,10 @@ Accessibility preferences and consent controls extracted from the owner-authoriz
 
 Source: https://github.com/9mtm/Web-Respect
 
+<p><img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/nodedotjs.svg" alt="Node.js" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/react.svg" alt="React" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/astro.svg" alt="Astro" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/svelte.svg" alt="Svelte" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/vuedotjs.svg" alt="Vue" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/nextdotjs.svg" alt="Next.js" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/wordpress.svg" alt="WordPress" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/angular.svg" alt="Angular" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/python.svg" alt="Python" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/typescript.svg" alt="TypeScript" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/php.svg" alt="PHP" height="24"> <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/integrations/html5.svg" alt="HTML" height="24"></p>
+
+Tested frontend integrations and optional backend runtimes; exact versions are listed in [verification](docs/verification.md).
+
 Version: 0.1.0 (initial release candidate). Install from [npm](https://www.npmjs.com/package/web-respect-dpro) with `npm install web-respect-dpro@0.1.0`. Tested versions and limits: [verification](docs/verification.md). The GitHub release tarball can also be installed with `npm install ./web-respect-dpro-0.1.0.tgz`, or build from this repository:
 
 ```sh
