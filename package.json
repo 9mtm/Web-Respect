@@ -1,6 +1,6 @@
 {
   "name": "web-respect-dpro",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Configurable accessibility and consent controls with optional backend adapters",
   "type": "module",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "contract",
     "examples",
     "scripts/backend-conformance.mjs",
+    "scripts/install-skill.mjs",
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
@@ -38,6 +39,9 @@
       "types": "./dist/react.d.ts",
       "import": "./dist/react.js"
     }
+  },
+  "bin": {
+    "web-respect-skill": "scripts/install-skill.mjs"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — audit skill
+
+- Expand the agent skill with owner intake, market applicability, sourced EU/EEA, Brazil, US and Australia research, vendor/AI data flows, retention, rights/deletion and accessibility evaluation.
+- Add an explicit-target skill installer that preserves existing skills, and a standalone skill download.
+- Replace duplicate product-page integration marks with the agent skill section; integration marks remain in the footer.
+- Browser and backend runtime behavior remains unchanged; the skill guides agent inspection and does not add an autonomous compliance scanner.
+
 ## 0.1.2 — integration marks
 
 - Include tested frontend/backend integration logos and their CC0 licence.

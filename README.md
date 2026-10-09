@@ -19,7 +19,7 @@ Source: https://github.com/9mtm/Web-Respect
 
 Tested frontend integrations and optional backend runtimes; exact versions are listed in [verification](docs/verification.md).
 
-Version: 0.1.2 (documentation and branding patch; runtime unchanged from 0.1.0). Install from [npm](https://www.npmjs.com/package/web-respect-dpro) with `npm install web-respect-dpro@0.1.2`. Tested versions and limits: [verification](docs/verification.md). The GitHub release tarball can also be installed with `npm install ./web-respect-dpro-0.1.2.tgz`, or build from this repository:
+Release kit: 0.2.0 (expanded audit skill and explicit-target installer; browser/backend runtime unchanged from 0.1.0). The previously verified npm release is 0.1.2; check the [registry](https://www.npmjs.com/package/web-respect-dpro) before assuming 0.2.0 is available there. Install the new kit from its [GitHub release](https://github.com/9mtm/Web-Respect/releases/tag/v0.2.0) with `npm install ./web-respect-dpro-0.2.0.tgz`, or build from this repository. Tested runtime versions and limits: [verification](docs/verification.md).
 
 ```sh
 npm ci
@@ -65,6 +65,26 @@ consent: {
 
 No server is required for local accessibility or choices. npm ships backend reference files; PHP/Laravel and Python execute in their own runtimes. Native Composer/PyPI distribution is unavailable. Use the same contract to add Go/Java/.NET adapters.
 
-Agent skill: `node_modules/web-respect-dpro/skill/web-respect/SKILL.md`. Copy the complete `skill/web-respect` directory into your coding agent's skills directory, or instruct it to read that exact file. This does not require the author's machine or a global skill installation. [Skill](skill/web-respect/SKILL.md) · [Configuration/API](docs/api.md) · [Frontend examples](examples/README.md) · [Backend integration](backends/README.md) · [Regions](docs/regions.md) · [WordPress](examples/wordpress/README.md)
+## Agent audit skill
+
+The [Web Respect skill](skill/web-respect/SKILL.md) starts with company establishment, target countries and US states, actual customers, service type and audience. It guides source/browser/backend inspection, current official legal research, vendor and AI-provider data flows, tenant-specific processing regions, transfers, retention and backups, privacy requests and downstream deletion, and accessibility evaluation. Initial research profiles cover EU/EEA, Brazil, the US and Australia; additional markets need their own research.
+
+This is an agent workflow, not an automatic all-laws scanner or certification. It distinguishes observed behavior, owner declarations, missing provider access and legal decisions. Review requests remain reviews until implementation is authorized. Reports and sensitive evidence stay private unless sanitized publication is authorized.
+
+Agent skill path: `node_modules/web-respect-dpro/skill/web-respect/SKILL.md`. Copy the complete folder including references, or download [the standalone skill ZIP](https://github.com/9mtm/Web-Respect/releases/download/v0.2.0/web-respect-skill-0.2.0.zip). Extract its `web-respect` folder into your agent's skills directory. The audit references work separately; implementation also needs the package API/backend documentation linked by the skill.
+
+After installing the 0.2.0 kit, install into a project-local agent skills directory:
+
+```sh
+npx --no-install web-respect-skill --target .agents/skills
+```
+
+For an agent that uses another location, supply that directory explicitly. The installer only copies the skill; it never overwrites an existing `web-respect` entry, installs trackers, changes the host application or contacts providers. It needs Node 22 or newer. If installation fails after creating a new folder, inspect that partial folder before retrying.
+
+Ask your coding agent:
+
+> Use $web-respect to audit this project. Ask for missing company and market facts first. Inspect real services, privacy choices, accessibility, processing locations, retention and deletion. Verify current official sources. Produce an evidence-based action plan, mark unknowns and keep private information out of public output. Start with a review.
+
+[Configuration/API](docs/api.md) · [Frontend examples](examples/README.md) · [Backend integration](backends/README.md) · [Regions](docs/regions.md) · [WordPress](examples/wordpress/README.md)
 
 The toolkit supports engineering and compliance work. Installation is not legal advice, verified identity/age, an accessibility repair service or a WCAG/legal certificate. Canvas/3D accessibility, server-side tracking, provider data deletion, notices, lawful bases, transfers, child/guardian obligations and operational privacy requests remain host responsibilities. Refusal preserves required site features.
