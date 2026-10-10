@@ -19,7 +19,7 @@ Source: https://github.com/9mtm/Web-Respect
 
 Tested frontend integrations and optional backend runtimes; exact versions are listed in [verification](docs/verification.md).
 
-Release 0.3.0 adds Cookie Checker and configurable data-deletion requests. Download the package, standalone agent skill and WordPress plugin from the [0.3.0 release](https://github.com/9mtm/Web-Respect/releases/tag/v0.3.0). Install with `npm install web-respect-dpro@0.3.0` when this version is available in the registry, or install the release tarball locally. The skill discovers actual services, including AI providers, and prepares project-specific integrations; provider credentials and verified user requests remain host-owned.
+Release 0.3.1 includes corrected popup attribution and footer spacing, alongside Cookie Checker and configurable data-deletion requests. Download the package, standalone agent skill and WordPress plugin from the [0.3.1 release](https://github.com/9mtm/Web-Respect/releases/tag/v0.3.1). Install with `npm install web-respect-dpro@0.3.1` when this version is available in the registry, or install the release tarball locally. The skill discovers actual services, including AI providers, and prepares project-specific integrations; provider credentials and verified user requests remain host-owned.
 
 ```sh
 npm ci

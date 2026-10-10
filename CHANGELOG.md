@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 — 2026-10-10
+
+- Place configured logo and short Powered by attribution only at the bottom of the cookie preferences popup; keep the accessibility drawer free of branding.
+- Align and bound logo dimensions, and separate wrapping footer controls.
+- Keep the local service checker, privacy request API and market-specific audit skill from 0.3.0.
+
 ## 0.3.0 — 2026-10-10
 
 - Local Cookie Checker reports cookie/storage names and possible service evidence without transmitting values.
