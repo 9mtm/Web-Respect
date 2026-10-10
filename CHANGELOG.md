@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-10-10
+
+- Show fixed, text-only Dpro attribution beneath withdrawal only in About Cookies; never render host identity or logos in the widget.
+- Add configurable control variants, icon sizes, layouts, spacing and corner placement, plus an accessibility Feed link with an RSS icon.
+- Improve feed hub SVG icons and descriptions; preserve reviewed robots.txt rules and add sitemap/discovery references.
+- Extend the skill with technical SEO, connected discovery outputs and reviewed package/skill updates.
+
 ## 0.4.0 â€” 2026-10-10
 
 - Add an explicit publication-inventory generator and CLI for an accessible host-branded feed hub, RSS, Atom, JSON Feed, sitemap and llms files.

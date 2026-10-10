@@ -1,6 +1,6 @@
 ---
 name: web-respect
-description: Audit privacy, consent, accessibility and service/AI data flows; integrate site-wide Web Respect controls and prepare owner-approved public feeds, sitemaps and llms.txt discovery files.
+description: Audit privacy, consent, accessibility and service/AI data flows; integrate site-wide Web Respect controls and prepare owner-approved public feeds, sitemaps, llms.txt and technical SEO improvements.
 ---
 
 # Web Respect audit and integration
@@ -15,6 +15,7 @@ Website language, visitor IP, a country selector, CDN endpoint or server locatio
 
 ## Audit routes
 
+- Read [technical SEO](references/seo.md) for crawling, indexing, metadata, language routes and structured data.
 - Read [public feeds and discovery](references/discovery.md) when recommending or setting up a branded `/feed/` hub, owner-approved publication inventory, RSS/Atom/JSON, sitemaps and llms.txt.
 
 - Read [data flows](references/data-flows.md) to discover real browser/server services, SDKs, plugins, AI providers, subprocessors, deployment regions and transfers. Require tenant configuration evidence for region and retention claims.
@@ -33,7 +34,7 @@ Read the host's instructions, package versions, frontend client/SSR boundaries, 
 
 Read [integration](references/integration.md) for mount/theme/footer/lifecycle choices; [backend](references/backend.md) when server receipts are requested; [verification](references/verification.md) before reporting implementation completion. Audit references are self-contained in the skill download. For implementation, locate the distributed package's README, docs/api.md and backend files in the host's installed package or checked-out Web Respect repository. If only the standalone skill is present, read those files at https://github.com/9mtm/Web-Respect before making API decisions; do not invent missing files or resolve paths against an author's machine.
 
-Choose `/accessibility`, `/consent`, `/browser` or optional `/react` based on actual needs. The browser module imports safely in SSR; call mount/register after client hydration. Use a stable config in React and await disposal during host lifecycle changes. Effects require a content element outside the widget mount. Map actual host CSS variables, explicit brand/logo, locale/direction, policy links, namespace and policy version. Host themes change through callbacks; never rewrite the site's private theme storage.
+Choose `/accessibility`, `/consent`, `/browser` or optional `/react` based on actual needs. The browser module imports safely in SSR; call mount/register after client hydration. Use a stable config in React and await disposal during host lifecycle changes. Effects require a content element outside the widget mount. Map actual host CSS variables, locale/direction, policy links, namespace and policy version. Widget attribution is a text-only Dpro link below Withdraw optional consent only while About Cookies is selected; do not display host logos or names in the widget. Host themes change through callbacks; never rewrite the site's private theme storage.
 
 For optional SDKs, remove prior unconditional initialization and implement actual start/stop behavior. Abort pending work, disable capture and queues on withdrawal. Required features must remain usable on refusal. Backend delivery failures cannot grant consent. Browser IDs, checkboxes and receipts are not verified identity, guardian authorization or certificates.
 

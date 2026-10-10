@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://example.org/sitemap.xml
+# Discovery: https://example.org/feed/
+# Discovery: https://example.org/feed.xml
+# Discovery: https://example.org/atom.xml
+# Discovery: https://example.org/feed.json
+# Discovery: https://example.org/llms.txt
+# Discovery: https://example.org/llms-full.txt

@@ -6,7 +6,7 @@
 
 `features` selects accessibility/consent. `showLauncher` is `active` (default/source behavior), `always` or `never`; `showBanner: false` allows a host-controlled demo or existing notice. `placement` sets launcher left/right; drawer remains right as in Flowxtra. `zIndex` sets banner/launcher layering; native modal dialogs use the browser top layer. `locale` defaults to the document language, `direction` supports RTL. `messages` overrides flattened labels. Structural source UI labels cover 25 locale variants; new explanatory/withdrawal labels currently have English/Arabic with English fallback. Host legal notices must be translated and reviewed separately; this is not automatic legal translation.
 
-`brand: {name,url,logo}` is optional. Configured branding appears at the bottom of the cookie preferences popup, below its actions. It never appears in the accessibility drawer. Set `showBrandCredit: false` to hide it entirely. No company logo is included by default. The short attribution defaults to "Powered by" and can be customized with `messages["brand.poweredBy"]`. `discoverBrand(document)` reads only `img[data-web-respect-logo]` or a declared site icon; review its result before passing it. `policies` includes cookies/privacy/accessibility/sitemap URLs. URLs allow HTTP(S), root-relative or fragments; no javascript/data/file URLs. No logo/font binary is redistributed by default.
+The cookie preferences dialog shows a short text-only `Powered by Dpro` link to `https://dpro.at/` below Withdraw optional consent only while About Cookies is selected. It has no logo and is absent from the banner and accessibility drawer. Set `showBrandCredit: false` to hide this link entirely. `brand: {name,url,logo}` is retained for configuration compatibility but never renders a host name, host link or logo in the widget. `messages["brand.poweredBy"]` can translate the short prefix; the Dpro identity and URL stay fixed. `discoverBrand(document)` is a separate explicit metadata helper; it does not configure widget attribution. Host logos belong to the separately approved feed hub. `policies` includes cookies/privacy/accessibility/feed URLs. Set `policies.feed` to a real public feed hub; the accessibility footer shows Feed instead of a direct sitemap link. Translate the label with `messages["footer.feed"]`. The legacy `policies.sitemap` option remains accepted but does not render a separate link.
 
 Theme precedence: `theme` explicit primary/accent/surface/text/border/radius; `themeVariables` mapping of the same names to actual host CSS variable names; Flowxtra defaults. CSS custom properties: `--wr-primary`, `--wr-accent`, `--wr-surface`, `--wr-text`, `--wr-border`, `--wr-radius`, `--wr-z-index`. Typography inherits from the mount host. `dark` sets initial widget theme; `onThemeChange` delegates light/dark control to the host; without a callback that control is disabled. Call `setTheme` when host theme changes.
 
@@ -33,3 +33,18 @@ Footer: `mountFooter(element, toolkit, {locale, accessibilityLabel, consentLabel
 ## Migration
 
 Changing policy/storage version fails closed. For existing Flowxtra accessibility settings, read the old key once and pass it through `validateAccessibility`, then `update` under the new namespace. Do not copy Flowxtra consent as proof of current consent: inventory/purposes/policy may differ. Ask again for optional purposes unless the host independently establishes equivalent, unexpired choices and documents the migration. No automatic migration silently enables tracking.
+
+## Control appearance and placement
+
+`mountFooter(target, toolkit, options)` supports `variant: 'plain' | 'outline' | 'solid'`, `iconSize` (12–96 pixels), `iconsOnly`, `layout: 'row' | 'column'`, `align: 'start' | 'center' | 'end'`, `gap`, and `position: 'inline' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'` with `offset` in pixels. Icons-only controls retain accessible names and tooltips. The wrapper class is `web-respect-footer`; host CSS can further customize it. Solid controls use optional CSS variables `--wr-control-background` and `--wr-control-color`.
+
+```ts
+mountFooter(footer, toolkit, {
+  feed: '/feed/', variant: 'outline', iconSize: 24,
+  iconsOnly: false, layout: 'row', align: 'center', gap: 16
+});
+```
+
+`mount` also accepts `launcher: {position, iconSize, variant, offset}` for its floating accessibility button. The launcher supports the four corner positions and the same three variants. `placement` continues to control the left/right accessibility drawer. Colors and radius remain configurable through `theme` or `themeVariables`. Custom host controls can call `toolkit.open('consent')` or `toolkit.open('accessibility')` for entirely custom layouts.
+
+Set `mount`'s top-level `iconSize` to size accessibility tile and Feed icons. Header close/reset icons keep their compact dimensions. Floating and host footer controls have their own `iconSize` options.

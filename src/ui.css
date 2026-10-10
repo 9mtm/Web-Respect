@@ -7,3 +7,5 @@
 .brand-credit{display:inline-flex;align-items:center;gap:6px;vertical-align:middle;max-width:100%;line-height:1.5;text-decoration:none}.brand-credit img{display:block;width:20px;height:20px;object-fit:contain;flex:none}.footer>div{display:flex;align-items:center;flex-wrap:wrap;gap:6px}.credit{display:flex;align-items:center}
 
 .brand-attribution{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px}
+
+.brand-attribution{display:inline-flex;align-items:center;gap:4px}

@@ -19,3 +19,14 @@ test('unsafe URLs and ambiguous dates fail before publication', () => {
   assert.throws(() => generateDiscovery({...config,updated:'2026-10-10T00:00:00'}));
   assert.throws(() => generateDiscovery({...config,items:[config.items[0],config.items[0]]}));
 });
+
+test('robots rules are preserved and the generated sitemap is added once', () => {
+  const rules='User-agent: *\nDisallow: /admin/\nSitemap: https://example.org/existing.xml\n';
+  const files=generateDiscovery({...config,robotsTxt:rules});
+  assert.ok(files['robots.txt'].body.startsWith(rules));
+  assert.match(files['robots.txt'].body,/Sitemap: https:\/\/example.org\/sitemap.xml/);
+  const again=generateDiscovery({...config,robotsTxt:files['robots.txt'].body});
+  assert.equal(again['robots.txt'].body,files['robots.txt'].body);
+  assert.match(files['feed/index.html'].body,/href="\/robots.txt"/);
+  assert.equal(generateDiscovery(config)['robots.txt'],undefined);
+});

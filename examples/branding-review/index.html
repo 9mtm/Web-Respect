@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Web Respect — local attribution review</title>
+<style>body{margin:0;background:#f8f6f2;color:#201a2b;font:17px/1.6 system-ui,sans-serif}main,footer{max-width:900px;margin:auto;padding:32px}h1{line-height:1.2}button{padding:12px 20px;border:1px solid #652d91;border-radius:10px;background:#fff;color:#652d91;font:inherit;cursor:pointer}.controls{display:flex;flex-wrap:wrap;gap:16px}.note{padding:20px;background:white;border-radius:12px}button:focus-visible{outline:3px solid #e89c24;outline-offset:4px}</style></head>
+<body><main id="content"><h1>Local attribution review</h1><p>This preview includes a deliberately different host name and logo in its configuration to verify that the widget never displays them.</p><p class="note">Cookie Settings: no attribution. About Cookies: one text-only Powered by Dpro link below Withdraw optional consent.<br>Accessibility: a Feed link, with no attribution or logo.</p><div class="controls"><button id="cookies">Cookie settings</button><button id="accessibility">Accessibility</button></div></main><footer id="footer"></footer><div id="respect"></div>
+<script type="module">
+import {mount,mountFooter} from '../../dist/browser.js';
+const toolkit=mount(document.querySelector('#respect'),{content:document.querySelector('#content'),namespace:'wr-about-credit-review',locale:'en',showBanner:false,showLauncher:'never',theme:{primary:'#652d91'},brand:{name:'Example Host',url:'https://example.org/',logo:'/examples/branding-review/host-logo.svg'},consent:{policyVersion:'local-review'},policies:{privacy:'#content',cookies:'#content',feed:'/examples/branding-review/discovery/feed/'}});
+document.querySelector('#cookies').onclick=()=>toolkit.open('consent');
+document.querySelector('#accessibility').onclick=()=>toolkit.open('accessibility');
+const feed='/examples/branding-review/discovery/feed/';
+const plainTitle=document.createElement('h2');plainTitle.textContent='Design examples';document.querySelector('#footer').append(plainTitle);
+for(const [variant,position,iconSize] of [['plain','inline',20],['outline','inline',24],['solid','inline',28],['plain','bottom-left',32]]){const area=document.createElement('section');area.style.marginTop='24px';const label=document.createElement('h3');label.textContent=position==='inline'?`${variant[0].toUpperCase()+variant.slice(1)} controls · ${iconSize}px icons`:'Floating icons · bottom left · no frame';area.append(label);document.querySelector('#footer').append(area);mountFooter(area,toolkit,{feed,variant,position,iconSize,iconsOnly:position!=='inline',align:'center'});}
+window.addEventListener('pagehide',()=>{void toolkit.dispose();});
+</script></body></html>

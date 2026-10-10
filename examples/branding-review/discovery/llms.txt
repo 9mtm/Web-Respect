@@ -1,0 +1,7 @@
+# Example Host
+
+> Public discovery formats available on this example site.
+
+## Public content
+
+- [About](https://example.org/about/): An explicitly approved public example page.

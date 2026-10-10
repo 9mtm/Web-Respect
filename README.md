@@ -1,6 +1,6 @@
 # Web Respect
 
-Release 0.4.0 adds an owner-approved [public feed and discovery workflow](docs/discovery.md). Generate a host-branded `/feed/` hub, RSS, Atom, JSON Feed, sitemap and llms files using `web-respect-feed`; the agent skill guides publication choices and site-wide localized consent/footer integration. Only the main hub includes a small text-only Powered by Dpro link. These files support discovery without guaranteeing search rankings or AI ingestion.
+Release 0.5.0 adds an owner-approved [public feed and discovery workflow](docs/discovery.md). Generate a host-branded `/feed/` hub, RSS, Atom, JSON Feed, sitemap and llms files using `web-respect-feed`; the agent skill guides publication choices and site-wide localized consent/footer integration. Only the main hub includes a small text-only Powered by Dpro link. These files support discovery without guaranteeing search rankings or AI ingestion.
 
 <p>
   <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/gdpr-dsgvo.png" alt="Owner-declared DSGVO and GDPR compliance" height="34">
@@ -21,7 +21,7 @@ Source: https://github.com/9mtm/Web-Respect
 
 Tested frontend integrations and optional backend runtimes; exact versions are listed in [verification](docs/verification.md).
 
-Release 0.3.2 includes corrected popup attribution and footer spacing, alongside Cookie Checker and configurable data-deletion requests. Download the package, standalone agent skill and WordPress plugin from the [0.3.2 release](https://github.com/9mtm/Web-Respect/releases/tag/v0.3.2). Install with `npm install web-respect-dpro@0.3.2` when this version is available in the registry, or install the release tarball locally. The skill discovers actual services, including AI providers, and prepares project-specific integrations; provider credentials and verified user requests remain host-owned.
+Release 0.5.0 adds configurable controls, improved Feed hub icons, reviewed robots.txt integration and technical SEO skill guidance. Cookie attribution is a text-only Dpro link shown beneath withdrawal only while About Cookies is selected. Download the package, skill and WordPress plugin from the [0.5.0 release](https://github.com/9mtm/Web-Respect/releases/tag/v0.5.0). Install with `npm install web-respect-dpro@0.5.0` once available in the registry, or use the release tarball. Service discovery and deletion integrations remain host-configured; credentials and verified privacy requests remain host-owned.
 
 ```sh
 npm ci
@@ -39,7 +39,6 @@ const toolkit = mount(document.querySelector('#respect')!, {
   namespace: 'my-site', locale: document.documentElement.lang,
   content: document.querySelector('main')!, // mount outside this element
   consent: {policyVersion: '2026-10'},
-  brand: {name: 'My site', logo: '/logo.svg'},
   policies: {cookies: '/cookies/', privacy: '/privacy/', accessibility: '/accessibility/'},
   themeVariables: {primary: '--brand', surface: '--surface', text: '--ink'},
 });
@@ -73,9 +72,9 @@ The [Web Respect skill](skill/web-respect/SKILL.md) starts with company establis
 
 This is an agent workflow, not an automatic all-laws scanner or certification. It distinguishes observed behavior, owner declarations, missing provider access and legal decisions. Review requests remain reviews until implementation is authorized. Reports and sensitive evidence stay private unless sanitized publication is authorized.
 
-Agent skill path: `node_modules/web-respect-dpro/skill/web-respect/SKILL.md`. Copy the complete folder including references, or download [the standalone skill ZIP](https://github.com/9mtm/Web-Respect/releases/download/v0.2.0/web-respect-skill-0.2.0.zip). Extract its `web-respect` folder into your agent's skills directory. The audit references work separately; implementation also needs the package API/backend documentation linked by the skill.
+Agent skill path: `node_modules/web-respect-dpro/skill/web-respect/SKILL.md`. Copy the complete folder including references, or download [the standalone skill ZIP](https://github.com/9mtm/Web-Respect/releases/download/v0.5.0/web-respect-skill-0.5.0.zip). Extract its `web-respect` folder into your agent's skills directory. The audit references work separately; implementation also needs the package API/backend documentation linked by the skill.
 
-After installing the 0.2.1 kit, install into a project-local agent skills directory:
+After installing the package, install into a project-local agent skills directory:
 
 ```sh
 npx --no-install web-respect-skill --target .agents/skills
@@ -94,3 +93,21 @@ The toolkit supports engineering and compliance work. Installation is not legal 
 ## Cookie Checker and data deletion
 
 Use the local cookie scanner internally during development or an authorized agent audit; never render it as a visitor control. Separately, offer a confirmed data-deletion request for your own website and configured AI/CRM/storage providers. Provider mapping, identity verification, durable jobs and credentials belong to your backend; service detection alone cannot discover or delete a visitor’s provider accounts. See [API examples, limits and host setup](docs/privacy-tools.md). The bundled skill includes matching scanner and deletion integration guidance.
+
+## Updating an existing installation
+
+From the project that uses Web Respect, run:
+
+```sh
+npm install web-respect-dpro@latest
+```
+
+Review release notes, rebuild and verify cookie consent, withdrawal, accessibility and Feed links locally before deploying. A separately copied agent skill must also be refreshed using the documented skill installer. Updates do not deploy your website automatically.
+
+To review updated skill instructions without overwriting your existing skill:
+
+```sh
+npx --no-install web-respect-skill --target .agents/skill-update-review
+```
+
+Use a new empty review directory for subsequent updates. Compare its `web-respect` folder with the active skill, preserve your customizations, and replace the active copy after review.

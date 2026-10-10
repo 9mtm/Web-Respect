@@ -1,0 +1,17 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Example Host",
+  "description": "Public discovery formats available on this example site.",
+  "home_page_url": "https://example.org/",
+  "feed_url": "https://example.org/feed.json",
+  "language": "en",
+  "items": [
+    {
+      "id": "https://example.org/about/",
+      "url": "https://example.org/about/",
+      "title": "About",
+      "content_text": "An explicitly approved public example page.",
+      "language": "en"
+    }
+  ]
+}

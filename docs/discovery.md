@@ -22,3 +22,7 @@ The hub follows the owner-provided centered card layout, with colored format ico
 For WordPress, use this generator during a server build/export or implement equivalent dynamic routes from explicitly approved published post types and permalinks. The existing WordPress widget does not automatically publish feeds. Rebuild on content changes; remove expired jobs and withdrawn content from every format. Do not use robots.txt to protect confidential pages. Social previews still need correct Open Graph/Twitter metadata on content pages; discovery files do not guarantee rankings or AI ingestion.
 
 Standards: [JSON Feed 1.1](https://www.jsonfeed.org/version/1.1/), [Atom](https://www.rfc-editor.org/rfc/rfc4287), [RSS](https://www.rssboard.org/rss-specification), [Sitemaps](https://www.sitemaps.org/protocol.html). [llms.txt](https://llmstxt.org/) is a proposed convention.
+
+## Existing robots rules
+
+Provide `robotsTxt` only after reviewing the existing site-root robots.txt with the owner. The generator preserves those rules, adds its Sitemap reference once, and adds public discovery URLs as `# Discovery:` comments. Comments do not instruct crawlers. Existing sitemap references are preserved. Without `robotsTxt`, only the merge snippet is generated; no replacement crawler policy is invented. Deploy reviewed robots.txt at the site root, never under `/feed/`. The hub links to robots.txt when generated, otherwise to the sitemap merge snippet.
