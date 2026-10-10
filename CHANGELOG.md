@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2 — 2026-10-10
+
+- Keep service scanning as a developer/agent diagnostic API; remove scanner controls from visitor privacy UI.
+- Empty privacy options mount nothing. Only an explicitly configured deletion workflow renders visitor controls.
+- Update the agent guidance and regression checks to prevent public checker controls.
+
 ## 0.3.1 — 2026-10-10
 
 - Place configured logo and short Powered by attribution only at the bottom of the cookie preferences popup; keep the accessibility drawer free of branding.

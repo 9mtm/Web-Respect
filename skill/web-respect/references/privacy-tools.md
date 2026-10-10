@@ -16,7 +16,7 @@ All of this can be prepared for any supported host project. Discovery does not g
 
 ## Package APIs
 
-For package 0.3.0 or newer, use `scanCookies` from `/scanner`, `mountPrivacyControls` from `/browser`, or `mount(..., {privacy: {...}})` to add controls to the consent dialog. Confirm the installed version first; 0.1.2 lacks these APIs. Configure translated labels for the host locale.
+Use `scanCookies` from `/scanner` only as a developer/agent diagnostic in an authorized audit context. Never add a Cookie Checker button or raw diagnostic report to public pages. In 0.3.2 or newer, `mountPrivacyControls` from `/browser` and `mount(..., {privacy: {...}})` expose only confirmed deletion-request controls when a real workflow is supplied; empty privacy options mount nothing. Older versions can expose scanner UI and must be upgraded or have that mount removed. Confirm the installed version first; 0.1.2 lacks these APIs. Configure translated labels for the host locale.
 
 The scanner reads visible cookie names, storage key names and resource hosts on the current page. Values are not included; nothing is sent. Default signatures cover possible Google Analytics, Tag Manager and Meta Pixel use; supply host-specific rules for other services. Treat matches as evidence to investigate. Preserve unknown and unavailable states. It cannot discover HttpOnly cookies, other-origin storage, server SDKs, private AI calls, account mappings or retention settings. Do not upload raw reports without reviewing key names for personal data.
 

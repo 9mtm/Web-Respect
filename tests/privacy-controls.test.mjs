@@ -13,29 +13,27 @@ function fixture(){
   }
   return {target:new Element('div'),doc};
 }
-test('deletion is opt-in; scanner does not submit a request',()=>{
-  const {target}=fixture();const remove=mountPrivacyControls(target);const section=target.children[0];
-  assert.equal(section.children.filter(child=>child.tag==='button').length,1);
-  section.children[0].onclick();assert.match(section.children.at(-1).textContent,/Visible cookies \(0\)/);remove();assert.equal(target.children.length,0);
+test('visitor controls mount nothing without a deletion workflow',()=>{
+  const {target}=fixture();const remove=mountPrivacyControls(target);assert.equal(target.children.length,0);remove();assert.equal(target.children.length,0);
 });
 test('cancel submits nothing; confirm submits once and pending is not completed',async()=>{
   const {target,doc}=fixture();let calls=0;
   mountPrivacyControls(target,{requestDeletion:async()=>{calls++;return {requestId:'r',status:'pending'};}});
-  const [scan,request,confirmation,output]=target.children[0].children;
+  const [request,confirmation,output]=target.children[0].children;
   const [,confirm,cancel]=confirmation.children;
   request.onclick();assert.equal(calls,0);assert.equal(doc.activeElement,confirm);
   cancel.onclick();assert.equal(calls,0);assert.ok(confirmation.hidden);
-  scan.onclick();assert.equal(calls,0);request.onclick();await confirm.onclick();assert.equal(calls,1);assert.match(output.textContent,/processing is pending/);assert.ok(!output.textContent.includes('completed'));assert.equal(doc.activeElement,request);
+  request.onclick();await confirm.onclick();assert.equal(calls,1);assert.match(output.textContent,/processing is pending/);assert.ok(!output.textContent.includes('completed'));assert.equal(doc.activeElement,request);
 });
 test('invalid receipts and rejected callbacks do not claim success',async()=>{
   for(const callback of [async()=>({requestId:'r',status:'invalid'}),async()=>{throw Error('secret');}]){
-    const {target}=fixture();mountPrivacyControls(target,{requestDeletion:callback});const [,request,confirmation,output]=target.children[0].children;
+    const {target}=fixture();mountPrivacyControls(target,{requestDeletion:callback});const [request,confirmation,output]=target.children[0].children;
     request.onclick();await confirmation.children[1].onclick();assert.match(output.textContent,/could not be confirmed/);assert.equal(request.disabled,false);assert.ok(!output.textContent.includes('secret'));
   }
 });
 test('unmount during submission does not update detached controls',async()=>{
   const {target}=fixture();let resolve;
   const remove=mountPrivacyControls(target,{requestDeletion:()=>new Promise(done=>resolve=done)});
-  const [,request,confirmation,output]=target.children[0].children;request.onclick();const pending=confirmation.children[1].onclick();assert.match(output.textContent,/Submitting/);
+  const [request,confirmation,output]=target.children[0].children;request.onclick();const pending=confirmation.children[1].onclick();assert.match(output.textContent,/Submitting/);
   remove();resolve({requestId:'r',status:'completed'});await pending;assert.equal(target.children.length,0);assert.match(output.textContent,/Submitting/);
 });
