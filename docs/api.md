@@ -48,3 +48,5 @@ mountFooter(footer, toolkit, {
 `mount` also accepts `launcher: {position, iconSize, variant, offset}` for its floating accessibility button. The launcher supports the four corner positions and the same three variants. `placement` continues to control the left/right accessibility drawer. Colors and radius remain configurable through `theme` or `themeVariables`. Custom host controls can call `toolkit.open('consent')` or `toolkit.open('accessibility')` for entirely custom layouts.
 
 Set `mount`'s top-level `iconSize` to size accessibility tile and Feed icons. Header close/reset icons keep their compact dimensions. Floating and host footer controls have their own `iconSize` options.
+
+The accessibility drawer footer shows Feed first, then the configured Statement link from policies.accessibility. The drawer contains no attribution. Generate the linked statement using the bundled skill workflow and reviewed audit evidence.

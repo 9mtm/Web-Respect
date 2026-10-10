@@ -6,7 +6,7 @@
 
  * Description: Host-configurable accessibility and consent controls with footer links.
 
- * Version: 0.5.1
+ * Version: 0.5.2
 
  * License: MIT
 
@@ -18,9 +18,9 @@ if (!defined('ABSPATH')) exit;
 
 add_action('wp_enqueue_scripts',function(){
 
- wp_enqueue_script('web-respect',plugins_url('web-respect.js',__FILE__),[], '0.5.1',true);
+ wp_enqueue_script('web-respect',plugins_url('web-respect.js',__FILE__),[], '0.5.2',true);
 
- wp_enqueue_script('web-respect-host',plugins_url('host.js',__FILE__),['web-respect'],'0.5.1',true);
+ wp_enqueue_script('web-respect-host',plugins_url('host.js',__FILE__),['web-respect'],'0.5.2',true);
 
  $configuration=apply_filters('web_respect_config',[
 

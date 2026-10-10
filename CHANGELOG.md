@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2 - 2026-10-10
+
+- Place Feed before Statement in the accessibility drawer footer, without drawer attribution.
+- Add a required evidence-based accessibility statement workflow and draft template to the skill.
+- Put a text-only Dpro credit at the bottom of the statement page; distinguish EU public-sector statements and covered-service information duties from blanket obligations.
+
 ## 0.5.1 - 2026-10-10
 
 - Require Feed, Sitemap and root robots.txt in the skill integration workflow.
