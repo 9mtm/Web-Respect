@@ -1,6 +1,6 @@
 # Cookie Checker and data deletion requests
 
-Web Respect is a free, MIT-licensed cookie banner, accessibility and privacy toolkit developed by Dpro. The Cookie Checker / Cookie Scanner runs a local snapshot on demand. Privacy controls let visitors submit a request to the host's configured workflow. These features require Web Respect 0.3.0 or newer; they do not exist in the older 0.1.2 browser bundle.
+Web Respect is a free, MIT-licensed cookie banner, accessibility and privacy toolkit developed by Dpro. The Cookie Checker / Cookie Scanner is an internal developer/agent diagnostic API, run only during development or an authorized audit. It is not a visitor-facing control. Privacy controls let visitors submit a request to the host's configured workflow. These features require Web Respect 0.3.0 or newer; they do not exist in the older 0.1.2 browser bundle.
 
 ## Let your coding agent prepare the integration
 
@@ -41,7 +41,7 @@ const toolkit = mount(widgetRoot, {
 });
 ```
 
-The consent dialog gets a scanner and a deletion-request button. `privacy: {}` enables the scanner alone. `mountPrivacyControls(element, options)` can also render standalone controls. The visitor must confirm submission; clicking the first button sends nothing. English labels are defaults; translate all `labels` through host configuration. Failures show a retry/contact message. No callback means no deletion button, network traffic or invented service endpoint. Closing/unmounting removes controls; a request already accepted by the server is not cancelled by navigation.
+In 0.3.2 and newer, the consent dialog can show a deletion-request button only when a real host callback is configured. `privacy: {}` mounts no visitor controls. The scanner is not rendered to visitors; run `scanCookies` explicitly in a developer/agent audit context. In older versions, remove the scanner UI or upgrade before integrating visitor controls. `mountPrivacyControls(element, options)` can also render standalone controls. The visitor must confirm submission; clicking the first button sends nothing. English labels are defaults; translate all `labels` through host configuration. Failures show a retry/contact message. No callback means no deletion button, network traffic or invented service endpoint. Closing/unmounting removes controls; a request already accepted by the server is not cancelled by navigation.
 
 The endpoint above is a host implementation, not supplied by the package. Resolve identity from your own session/verification flow, never a browser-supplied email or subject ID. Validate request shape, origin and CSRF, enforce body/rate limits and persist a durable request before acknowledging it. Return a receipt without personal identifiers. A verified request may still need scoped retention exceptions. Withdrawal and deletion are separate operations; deletion requests must also address future collection in the host's actual workflow.
 

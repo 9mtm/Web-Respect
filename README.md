@@ -91,4 +91,4 @@ The toolkit supports engineering and compliance work. Installation is not legal 
 
 ## Cookie Checker and data deletion
 
-Run a local, on-demand cookie scanner and offer a confirmed data-deletion request for your own website and configured AI/CRM/storage providers. Provider mapping, identity verification, durable jobs and credentials belong to your backend; service detection alone cannot discover or delete a visitor’s provider accounts. See [API examples, limits and host setup](docs/privacy-tools.md). The bundled skill includes matching scanner and deletion integration guidance.
+Use the local cookie scanner internally during development or an authorized agent audit; never render it as a visitor control. Separately, offer a confirmed data-deletion request for your own website and configured AI/CRM/storage providers. Provider mapping, identity verification, durable jobs and credentials belong to your backend; service detection alone cannot discover or delete a visitor’s provider accounts. See [API examples, limits and host setup](docs/privacy-tools.md). The bundled skill includes matching scanner and deletion integration guidance.
