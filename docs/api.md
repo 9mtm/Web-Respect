@@ -14,7 +14,15 @@ Theme precedence: `theme` explicit primary/accent/surface/text/border/radius; `t
 
 `consent.record` is an optional asynchronous backend callback. `onError` receives storage, SDK or receipt-delivery failures. `consent.policyVersion` invalidates old choices. `ttlMs` defaults to 180 days, configurable up to one year; this engineering default is not a legal retention recommendation. All optional purposes start off. `namespace`, `storageVersion` and injected `storage` isolate versioned settings. Blocked storage retains memory choices for the current mount; a later visit asks again. Cross-tab storage changes refresh both controllers.
 
-## Controllers
+## Cookie Checker and privacy requests (0.3.0)
+
+`scanCookies(document, rules?)` from `/scanner` returns visible cookie/storage names, resource hosts, possible service evidence, unavailable sources and coverage limits. It performs no network calls or writes. Default signatures are hints for Google Analytics, Tag Manager and Meta Pixel; configure other signatures explicitly. It does not discover server-side AI services or identify provider accounts.
+
+`mountPrivacyControls(element, {rules, requestDeletion, labels})` from `/browser` returns a cleanup function. `mount(..., {privacy: {...}})` adds the same controls inside the consent dialog. `privacy: {}` enables the checker alone. Supply `requestDeletion` only for a real host workflow; it is invoked after confirmation and returns a receipt with `requestId` and `status: 'pending'|'completed'|'restricted'`. Labels are English by default and host-overridable. Failures never display success.
+
+`dispatchDeletion(context, {authorize, providers, record})` from `/privacy` is a server-only integration helper. Configure approved subject-specific providers, persistent intent/result recording and verified identity. The helper is not an HTTP endpoint, durable queue or built-in vendor connector. See [privacy tools](privacy-tools.md) for host-side idempotency, retry and provider integration requirements.
+
+## State controllers
 
 Accessibility: `get()`, `update(patch)`, `reset()`, `refresh()`, `subscribe(listener)` returning an unsubscribe function, `dispose()`. Validated text scales 87.5–200%, line-height 1.2/1.5/2/2.5, align left/center/justify and boolean source reading/color controls. Defaults are inert. Host effects handle readable-font spacing, link/focus/structure emphasis, images, motion, reading mask and composable grayscale/contrast. They supplement accessible content; no dyslexia treatment or conformance claim.
 

@@ -1,10 +1,15 @@
 # Changelog
 
-## 0.2.1 - brand presentation
+## 0.3.0 — 2026-10-10
 
-- Center integration logos in README and retain original brand colours with white backing for dark backgrounds.
+- Local Cookie Checker reports cookie/storage names and possible service evidence without transmitting values.
+- Optional confirmed deletion-request controls and server-side provider orchestration with authorization and per-provider status recording.
+- Host integration documentation and bundled skill guidance; real vendor connectors and durable queues remain host-owned.
+
+## 0.2.1 — brand presentation
+
+- Center integration logos in README and retain original brand colours with a white backing for dark backgrounds.
 - Browser/backend code and audit skill behavior remain unchanged from 0.2.0.
-
 
 ## 0.2.0 — audit skill
 

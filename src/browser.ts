@@ -7,6 +7,9 @@ import {locales} from './locales.js';
 import {consentLocales} from './consent-locales.js';
 import {consentIcon} from './footer-icons.js';
 import css from './ui.css';
+import {mountPrivacyControls, type PrivacyControlsOptions} from './privacy-controls.js';
+export {scanCookies, scannerRules} from './scanner.js';
+export {mountPrivacyControls} from './privacy-controls.js';
 export interface InventoryItem {name:string; provider:string; storage:string; retention:string; privacyPolicy?:string; category:Category}
 export interface BrowserConfig extends StateOptions {
   locale?:string; direction?:'ltr'|'rtl'; brand?:{name:string; url?:string; logo?:string};
@@ -17,6 +20,7 @@ export interface BrowserConfig extends StateOptions {
   content?:HTMLElement; features?:('accessibility'|'consent')[];
   consent?:Omit<ConsentOptions,'storage'|'namespace'|'storageVersion'>;
   inventory?:InventoryItem[];
+  privacy?:PrivacyControlsOptions;
   messages?:Record<string,string>;
   showLauncher?:'always'|'active'|'never'; showBanner?:boolean;
 }
@@ -64,7 +68,8 @@ export function mount(target:HTMLElement, config:BrowserConfig = {}):Toolkit {
     const active = accessibility && Object.entries(accessibility.get()).some(([key,value])=>value !== accessibilityDefaults[key as keyof AccessibilitySettings]);
     container.innerHTML = `${accessibility && (config.showLauncher === 'always' || (config.showLauncher !== 'never' && active)) ? `<button class="launcher" data-action="accessibility" aria-label="${escape(t('title'))}" style="${config.placement==='left'?'inset-inline-start:24px;inset-inline-end:auto':''}">${icons.accessibility}</button>`:''}${consent && config.showBanner !== false && !consent.get() ? `<aside class="banner" aria-label="${escape(t('consent.bannerTitle'))}"><div class="banner-inner"><div><h3>${escape(t('consent.bannerTitle'))}</h3><p>${escape(t('consent.bannerDescription'))} ${link(t('consent.cookies'),config.policies?.cookies)}</p></div><div class="actions">${action('reject','consent.reject')}${action('consent','consent.preferences')}${action('accept','consent.accept',true)}</div></div></aside>`:''}`;
   }
-  function close() { if(!current) return; current.close(); current.remove(); current=undefined; returnFocus?.focus(); }
+  let removePrivacy:(()=>void)|undefined;
+  function close() { removePrivacy?.(); removePrivacy=undefined; if(!current) return; current.close(); current.remove(); current=undefined; returnFocus?.focus(); }
   function open(feature:'accessibility'|'consent') {
     if(disposed) throw new Error('Toolkit disposed');
     if ((feature==='accessibility' && !accessibility) || (feature==='consent' && !consent)) throw new Error('Feature not mounted');
@@ -77,6 +82,7 @@ export function mount(target:HTMLElement, config:BrowserConfig = {}):Toolkit {
       const choices=consent!.get()?.choices ?? requiredOnly();
       dialog.innerHTML=`<div class="consent-head"><h2 id="wr-title">${escape(t('consent.title'))}</h2><button class="icon-button" data-action="close" aria-label="${escape(t('close'))}">${closeIcon}</button></div><p class="intro">${escape(t('consent.intro'))} ${link(t('consent.cookies'),config.policies?.cookies)}</p><div class="tabs" role="tablist"><button role="tab" class="tab" data-tab="settings" aria-selected="true" aria-controls="settings">${escape(t('consent.settings'))}</button><button role="tab" class="tab" data-tab="about" aria-selected="false" aria-controls="about" tabindex="-1">${escape(t('consent.about'))}</button></div><div id="settings" role="tabpanel">${categories.map(category=>`<div class="category"><div><button class="category-toggle" data-expand="${category}" aria-expanded="false">${escape(t('consent.'+category))}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="m6 9 6 6 6-6"/></svg></button><p>${escape(t('consent.'+category+'Description'))}</p><div class="table-scroll" data-services="${category}" hidden>${table(category)}</div></div><label class="switch"><input type="checkbox" data-category="${category}" aria-label="${escape(t('consent.'+category))}" ${choices[category]?'checked':''} ${category==='essential'?'disabled':''}></label></div>`).join('')}</div><div id="about" role="tabpanel" hidden><p>${escape(t('consent.aboutText'))} ${link('Privacy Policy',config.policies?.privacy)}</p></div><div class="actions">${action('close','consent.cancel')}${action('reject','consent.necessary')}${action('save','consent.save',true)}</div><button class="icon-button" data-action="withdraw">${escape(t('consent.withdraw'))}</button><div class="credit">${credit()}</div>`;
     }
+    if(feature==='consent' && config.privacy)removePrivacy=mountPrivacyControls(dialog,config.privacy);
     root.append(dialog); dialog.showModal(); dialog.querySelector<HTMLElement>('[data-action=close]')?.focus();
     dialog.addEventListener('cancel',event=>{event.preventDefault();close();});
     dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)close();}});

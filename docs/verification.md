@@ -37,3 +37,11 @@ Independent Codex review prompted fixes for long expiry timers, asynchronous SDK
 Only the versions/browser above were exercised. Production Angular SSR, real mobile devices, Safari/Firefox, every navigation system and provider-specific trackers require host testing. Remount fixes have core tests and independent code review. An SDK that ignores abort may delay disposal until startup finishes; stop callbacks must be idempotent.
 
 Structural translations cover 25 locale variants; new explanatory/withdrawal text uses English/Arabic with English fallback. Legal notices require separate translation/review. MCP/Feed expose declared host links only. WordPress does not automatically gate trackers from unrelated plugins. Effects cannot repair canvas/3D semantics. Icon/licence boundaries are documented in `provenance.md`.
+
+## 0.3.0 release checks
+
+The cookie checker and privacy-request APIs are additions in 0.3.0. Build and 20 automated tests pass. Additional tests cover cookie/report value exclusion, unavailable storage, authorization before provider dispatch, persistence-before-dispatch, independent provider failure states, confirmation/cancellation, failed receipts and disposal during submission.
+
+An installed local tarball imports the scanner, server dispatcher and browser controls safely without a DOM at import time. Its 134 packaged files passed a targeted forbidden-file, private-path and secret-pattern scan. Browser verification of the Dpro demo confirmed readable results, explicit simulation, cancellation and pending status. At a 390px viewport the product page had no horizontal overflow after correcting the install-code grid. These are Chromium/local checks, not real-device or cross-browser coverage.
+
+The build refreshes the WordPress bundle, but no WordPress runtime test of these new controls or real provider API integration is claimed. Server authorization, subject mappings, protected request endpoints, provider deletion adapters, durable locks/idempotency and retention exceptions remain host implementation requirements. The Dpro public-facing deletion preview is a simulation; no real request or deletion was executed in these checks.
