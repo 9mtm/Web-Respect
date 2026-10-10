@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 - brand presentation
+
+- Center integration logos in README and retain original brand colours with white backing for dark backgrounds.
+- Browser/backend code and audit skill behavior remain unchanged from 0.2.0.
+
+
 ## 0.2.0 — audit skill
 
 - Expand the agent skill with owner intake, market applicability, sourced EU/EEA, Brazil, US and Australia research, vendor/AI data flows, retention, rights/deletion and accessibility evaluation.

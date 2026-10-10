@@ -73,7 +73,7 @@ This is an agent workflow, not an automatic all-laws scanner or certification. I
 
 Agent skill path: `node_modules/web-respect-dpro/skill/web-respect/SKILL.md`. Copy the complete folder including references, or download [the standalone skill ZIP](https://github.com/9mtm/Web-Respect/releases/download/v0.2.0/web-respect-skill-0.2.0.zip). Extract its `web-respect` folder into your agent's skills directory. The audit references work separately; implementation also needs the package API/backend documentation linked by the skill.
 
-After installing the 0.2.0 kit, install into a project-local agent skills directory:
+After installing the 0.2.1 kit, install into a project-local agent skills directory:
 
 ```sh
 npx --no-install web-respect-skill --target .agents/skills
