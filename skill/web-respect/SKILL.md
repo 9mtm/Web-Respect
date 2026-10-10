@@ -1,6 +1,6 @@
 ---
 name: web-respect
-description: Audit websites and applications for privacy, consent, accessibility and service/AI data flows; discover their actual providers and prepare Web Respect cookie-checker and data-deletion integrations when requested.
+description: Audit privacy, consent, accessibility and service/AI data flows; integrate site-wide Web Respect controls and prepare owner-approved public feeds, sitemaps and llms.txt discovery files.
 ---
 
 # Web Respect audit and integration
@@ -14,6 +14,8 @@ Read [applicability](references/applicability.md) first for an audit. Ask the ow
 Website language, visitor IP, a country selector, CDN endpoint or server location alone does not prove applicability or an exemption. An owner targeting only one market still needs analysis of establishment, actual processing, other customers and sector rules. Preserve a dated applicability matrix with reasons, sources and unresolved facts. For an unlisted country, research its regulator and legislation before advising; do not inherit a different country's profile.
 
 ## Audit routes
+
+- Read [public feeds and discovery](references/discovery.md) when recommending or setting up a branded `/feed/` hub, owner-approved publication inventory, RSS/Atom/JSON, sitemaps and llms.txt.
 
 - Read [data flows](references/data-flows.md) to discover real browser/server services, SDKs, plugins, AI providers, subprocessors, deployment regions and transfers. Require tenant configuration evidence for region and retention claims.
 - Read [privacy operations](references/privacy-operations.md) for storage/consent, retention, requests, deletion propagation, restore handling and operational controls.
@@ -38,5 +40,7 @@ For optional SDKs, remove prior unconditional initialization and implement actua
 Use the applicability matrix to configure actual requirements. Separate lawful bases for processing from terminal-device consent and US sale/sharing or targeted-advertising opt-outs. Test applicable privacy signals in the host and downstream services; the toolkit has no built-in universal GPC handler. Never promise universal compatibility, legal compliance or WCAG conformance from installation.
 
 Use the package's source-preserving UI and existing framework examples. Add optional declared MCP/feed links only when the host actually provides them. Keep code/docs/comments in the project's required language; localized UI dictionaries are separate content. WordPress plugin configuration cannot stop arbitrary tracker plugins without real integration.
+
+For site-wide integration, mount consent once in the shared layout on every public route. Put a cookie-settings button with a cookie icon beside the accessibility control in the common footer; localize both labels and dialogs for every host language. Wire refusal and withdrawal to actual optional service start/stop behavior. Verify first visit, persisted choice, reopen, navigation and both language versions. Deploy when the owner has authorized deployment, then check live routes; do not report publication based only on a local build.
 
 Upgrade: back up settings, change policy version when purposes/inventory change, validate old accessibility settings and ask again rather than silently migrate old Flowxtra consent. Report actual tested versions, failures, external credential blockers and unsupported integrations. Do not publish private paths, host secrets, local task/handoff files or sensitive fixtures.

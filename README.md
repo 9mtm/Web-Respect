@@ -1,5 +1,7 @@
 # Web Respect
 
+Release 0.4.0 adds an owner-approved [public feed and discovery workflow](docs/discovery.md). Generate a host-branded `/feed/` hub, RSS, Atom, JSON Feed, sitemap and llms files using `web-respect-feed`; the agent skill guides publication choices and site-wide localized consent/footer integration. Only the main hub includes a small text-only Powered by Dpro link. These files support discovery without guaranteeing search rankings or AI ingestion.
+
 <p>
   <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/gdpr-dsgvo.png" alt="Owner-declared DSGVO and GDPR compliance" height="34">
   <img src="https://raw.githubusercontent.com/9mtm/Web-Respect/main/docs/brand/eu-ai-act.png" alt="Owner-declared EU AI Act compliance" height="34">

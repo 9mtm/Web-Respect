@@ -1,6 +1,6 @@
 {
   "name": "web-respect-dpro",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Free open-source cookie banner, cookie checker, accessibility and configurable privacy-request toolkit by Dpro",
   "type": "module",
   "license": "MIT",
@@ -16,7 +16,8 @@
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
-    "SECURITY.md"
+    "SECURITY.md",
+    "scripts/generate-feed.mjs"
   ],
   "exports": {
     ".": {
@@ -46,10 +47,15 @@
     "./privacy": {
       "types": "./dist/privacy.d.ts",
       "import": "./dist/privacy.js"
+    },
+    "./feed": {
+      "types": "./dist/feed.d.ts",
+      "import": "./dist/feed.js"
     }
   },
   "bin": {
-    "web-respect-skill": "scripts/install-skill.mjs"
+    "web-respect-skill": "scripts/install-skill.mjs",
+    "web-respect-feed": "scripts/generate-feed.mjs"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

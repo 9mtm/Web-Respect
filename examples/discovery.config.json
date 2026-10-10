@@ -1,0 +1,13 @@
+{
+  "siteUrl": "https://example.org",
+  "title": "Example Site",
+  "description": "Owner-approved public pages and updates.",
+  "language": "en",
+  "logo": "/logo.svg",
+  "updated": "2026-10-10T00:00:00Z",
+  "exclude": ["/private/"],
+  "items": [
+    {"url": "/about/", "title": "About", "description": "About our organization.", "category": "Pages", "publish": true},
+    {"url": "/private/", "title": "Private", "description": "Never publish this example.", "publish": false}
+  ]
+}

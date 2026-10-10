@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-10-10
+
+- Add an explicit publication-inventory generator and CLI for an accessible host-branded feed hub, RSS, Atom, JSON Feed, sitemap and llms files.
+- Restrict Dpro feed attribution to one plain text link on the main hub; machine-readable outputs contain no attribution.
+- Extend the agent skill with content selection, exclusions, host/CMS integration and site-wide localized consent/footer verification.
+
 ## 0.3.2 — 2026-10-10
 
 - Keep service scanning as a developer/agent diagnostic API; remove scanner controls from visitor privacy UI.
